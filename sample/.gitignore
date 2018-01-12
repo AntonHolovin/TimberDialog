@@ -1,0 +1,9 @@
+### Mac OS ###
+.DS_Store
+
+### Intellij ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+/*.iml
+
+### Gradle ###
+build/

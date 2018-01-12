@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="logs">Logs</string>
+
+    <string name="cancel">Cancel</string>
+
+    <string name="share">Share</string>
+
+    <string name="save_error">Couldn\'t save the logs for sharing</string>
+    <string name="no_permission">Couldn\'t share the logs. No permission was granted</string>
+    <string name="no_intent_handler">There are no applications available to handle this action</string>
+</resources>

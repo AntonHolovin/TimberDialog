@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="grey_50">#FAFAFA</color>
+    <color name="grey_100">#F5F5F5</color>
+
+    <color name="level_text">#ffffffff</color>
+
+    <color name="debug">#2196F3</color>
+    <color name="info">#8BC34A</color>
+    <color name="warn">#FFC107</color>
+    <color name="error">#F44336</color>
+    <color name="unknown">#9C27B0</color>
+</resources>
