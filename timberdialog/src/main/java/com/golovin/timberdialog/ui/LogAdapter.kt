@@ -1,5 +1,6 @@
 package com.golovin.timberdialog.ui
 
+import android.annotation.SuppressLint
 import android.support.annotation.ColorRes
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -42,6 +43,7 @@ class LogAdapter : RecyclerView.Adapter<LogAdapter.ViewHolder>() {
         private val tagTextView = itemView.findViewById<TextView>(R.id.text_tag)
         private val messageTextView = itemView.findViewById<TextView>(R.id.text_message)
 
+        @SuppressLint("SetTextI18n")
         fun bind(entry: LogEntry, even: Boolean) {
             val backgroundColor = if (even) R.color.grey_50 else R.color.grey_100
             tagTextView.setBackgroundResource(backgroundColor)
@@ -50,7 +52,7 @@ class LogAdapter : RecyclerView.Adapter<LogAdapter.ViewHolder>() {
             itemView.setBackgroundResource(getBackgroundForLevel(entry.level))
 
             levelTextView.text = entry.displayLevel
-            tagTextView.text = entry.tag
+            tagTextView.text = "${entry.timestamp} ${entry.tag ?: ""}"
             messageTextView.text = entry.message
         }
 

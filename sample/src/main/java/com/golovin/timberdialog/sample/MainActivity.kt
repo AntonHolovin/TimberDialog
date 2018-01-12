@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun writeLogs() {
-        Observable.intervalRange(0, 24, 1, 1, TimeUnit.SECONDS)
+        Observable.intervalRange(0, 24, 2, 1, TimeUnit.SECONDS)
                 .subscribe {
                     val log = (Log.VERBOSE..Log.ASSERT + 1).random()
 

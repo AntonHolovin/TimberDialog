@@ -2,7 +2,7 @@ package com.golovin.timberdialog
 
 import android.util.Log
 
-class LogEntry(val level: Int, val tag: String?, val message: String) {
+class LogEntry(val timestamp: String, val level: Int, val tag: String?, val message: String) {
 
     val displayLevel: String
         get() = when (level) {
@@ -15,5 +15,5 @@ class LogEntry(val level: Int, val tag: String?, val message: String) {
             else -> "?"
         }
 
-    fun prettyPrint() = String.format("%18s %s %s", tag, displayLevel, message)
+    fun prettyPrint() = "%16s %8s %s %s".format(timestamp, tag ?: "", displayLevel, message)
 }

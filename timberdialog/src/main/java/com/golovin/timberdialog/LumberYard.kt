@@ -17,17 +17,23 @@ private const val BUFFER_SIZE = 200
 private const val LOGS_DIR_NAME = "logs"
 private const val LOG_FILE_EXTENSION = ".log"
 
-class LumberYard(val context: Context) {
+class LumberYard(private val context: Context) {
     private val entries = ArrayDeque<LogEntry>(BUFFER_SIZE + 1)
     private val entrySubject = PublishSubject.create<LogEntry>()
+
+    private val dateFormatter = object : ThreadLocal<SimpleDateFormat>() {
+        override fun initialValue() = SimpleDateFormat("MM-dd kk:mm:ss.S", Locale.US)
+    }
 
     companion object : SingletonHolder<LumberYard, Context>(::LumberYard)
 
     fun tree() = object : Timber.Tree() {
         override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
-            addEntry(LogEntry(priority, tag, message))
+            addEntry(LogEntry(timestamp(), priority, tag, message))
         }
     }
+
+    private fun timestamp(): String = dateFormatter.get().format(Date())
 
     private fun addEntry(entry: LogEntry) {
         synchronized(this) {
@@ -41,7 +47,7 @@ class LumberYard(val context: Context) {
         }
     }
 
-    fun bufferedLogs() = entries.toList()
+    fun bufferedLogs(): List<LogEntry> = entries.toList()
 
     fun logs(): Observable<LogEntry> = entrySubject
 
