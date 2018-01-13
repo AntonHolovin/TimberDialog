@@ -4,7 +4,7 @@ Simple dialog which lets to check the logs from [Timber](https://github.com/Jake
 
 ![Demo](art/demo.gif)
 
-### Plant a tree
+## Plant a tree
 Use `LumberYard` class:
 ``` kotlin
 class App : Application() {
@@ -21,7 +21,7 @@ class App : Application() {
 }
 ```
 
-### Add provider to AndroidManifest.xml to support API 24+
+## Add provider to AndroidManifest.xml to support API 24+
 Add provider inside `<application>` node:
 ``` xml
 <provider
