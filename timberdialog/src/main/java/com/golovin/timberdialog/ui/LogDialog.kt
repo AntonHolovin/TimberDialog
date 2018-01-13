@@ -51,7 +51,7 @@ class LogDialog : AppCompatDialogFragment() {
     override fun onStart() {
         super.onStart()
 
-        LumberYard.getInstance(activity.applicationContext).let {
+        LumberYard.getInstance(context.applicationContext).let {
             logAdapter.setEntries(it.bufferedLogs())
             recyclerView.scrollToPosition(logAdapter.itemCount - 1)
 
@@ -80,8 +80,8 @@ class LogDialog : AppCompatDialogFragment() {
 
     private fun initRecyclerView() {
         recyclerView.apply {
-            layoutManager = LinearLayoutManager(activity)
-            addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
+            layoutManager = LinearLayoutManager(context)
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
             adapter = logAdapter
         }
     }
@@ -111,12 +111,12 @@ class LogDialog : AppCompatDialogFragment() {
     }
 
     private fun share() {
-        disposables += LumberYard.getInstance(activity.applicationContext)
+        disposables += LumberYard.getInstance(context.applicationContext)
                 .save()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    val uri = FileProvider.getUriForFile(activity, activity.packageName, it)
+                    val uri = FileProvider.getUriForFile(context, context.packageName, it)
 
                     val intent = ShareCompat.IntentBuilder.from(activity)
                             .setType("text/plain")
@@ -127,7 +127,7 @@ class LogDialog : AppCompatDialogFragment() {
 
                     maybeStartChooser(intent)
 
-                }, { Toast.makeText(activity, R.string.save_error, Toast.LENGTH_SHORT).show() })
+                }, { Toast.makeText(context, R.string.save_error, Toast.LENGTH_SHORT).show() })
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -144,10 +144,10 @@ class LogDialog : AppCompatDialogFragment() {
     }
 
     private fun maybeStartChooser(intent: Intent) {
-        if (hasHandler(activity, intent)) {
-            activity.startActivity(Intent.createChooser(intent, null))
+        if (hasHandler(context, intent)) {
+            context.startActivity(Intent.createChooser(intent, null))
         } else {
-            Toast.makeText(activity, R.string.no_intent_handler, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, R.string.no_intent_handler, Toast.LENGTH_SHORT).show()
         }
     }
 
