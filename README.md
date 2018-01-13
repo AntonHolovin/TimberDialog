@@ -2,7 +2,7 @@
 
 Simple dialog which lets to check the logs from [Timber](https://github.com/JakeWharton/timber). Logs can be shared as `.log` file.
 
-![Demo] (art/demo.gif)
+![Demo](art/demo.gif)
 
 ### Plant a tree
 Use `LumberYard` class:
