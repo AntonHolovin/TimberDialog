@@ -1,8 +1,27 @@
 # TimberDialog
+[![](https://jitpack.io/v/antonygolovin/timberdialog.svg)](https://jitpack.io/#antonygolovin/timberdialog)
 
 Simple dialog which lets to check the logs from [Timber](https://github.com/JakeWharton/timber). Logs can be shared as `.log` file.
 
 ![Demo](art/demo.gif)
+
+## Add dependency
+Add it in your root `build.gradle`:
+``` xml
+allprojects {
+    repositories {
+        // ...
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+
+Add the dependency:
+``` xml
+dependencies {
+    compile 'com.github.antonygolovin:timberdialog:0.1'
+}
+```
 
 ## Plant a tree
 Use `LumberYard` class:
@@ -21,7 +40,12 @@ class App : Application() {
 }
 ```
 
-## Add provider to AndroidManifest.xml to support API 24+
+## AndroidManifest.xml
+Add permission:
+``` xml
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+```
+
 Add provider inside `<application>` node:
 ``` xml
 <provider
