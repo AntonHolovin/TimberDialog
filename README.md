@@ -40,7 +40,7 @@ class App : Application() {
 }
 ```
 
-## AndroidManifest.xml
+## Edit app's AndroidManifest.xml
 Add permission:
 ``` xml
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
