@@ -41,11 +41,6 @@ class App : Application() {
 ```
 
 ## Edit app's AndroidManifest.xml
-Add permission:
-``` xml
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-```
-
 Add provider inside `<application>` node:
 ``` xml
 <provider
