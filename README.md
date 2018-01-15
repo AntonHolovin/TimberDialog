@@ -3,6 +3,8 @@
 
 Simple dialog which lets to check the logs from [Timber](https://github.com/JakeWharton/timber). Logs can be shared as `.log` file.
 
+Based on the dialog from [u2020](https://github.com/JakeWharton/u2020) app.
+
 ![Demo](art/demo.gif)
 
 ## Add dependency
