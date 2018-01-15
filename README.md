@@ -21,7 +21,7 @@ allprojects {
 Add the dependency:
 ``` xml
 dependencies {
-    compile 'com.github.antonygolovin:timberdialog:0.1'
+    debugImplementation 'com.github.antonygolovin:timberdialog:0.1'
 }
 ```
 
